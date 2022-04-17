@@ -1,0 +1,94 @@
+#:kivy 2.0.0
+<MainWidget>:
+    BoxLayout:
+        orientation:"vertical"
+        TextInput:
+            readonly: True
+            disabled: True
+            size_hint: (1, .3)
+            id: input
+            font_size: 30
+            halighn: "right"
+            text: "0"
+        GridLayout:
+            cols: 4
+            Button:
+                text:"C"
+                # background_normal : ""
+                background_color: root.parse_hex(157, 157,157)
+                on_press: root.Events.add_input_value(root.ids.input, "", append=False, root=root)
+            Button:
+                text:"+/-"
+                background_color: root.parse_hex(157, 157,157)
+                on_press: root.Events.add_input_value(root.ids.input, "+/-", root=root)
+            Button:
+                text:"DEL"
+                background_color: root.parse_hex(157, 157,157)
+                on_press: root.Events.add_input_value(root.ids.input, "DEL", append=True, root=root)
+            Button:
+                text:"/"
+                background_color: root.parse_hex(157, 157,157)
+                on_press: root.Events.add_input_value(root.ids.input, "/", root=root)
+            Button:
+                text:"7"
+                on_press: root.Events.add_input_value(root.ids.input, "7", root=root)
+            Button:
+                text:"8"
+                on_press: root.Events.add_input_value(root.ids.input, "8", root=root)
+            Button:
+                text:"9"
+                on_press: root.Events.add_input_value(root.ids.input, "9", root=root)
+            Button:
+                text:"*"
+                background_color: root.parse_hex(157, 157,157)
+                on_press: root.Events.add_input_value(root.ids.input, "*", root=root)
+            Button:
+                text:"4"
+                on_press: root.Events.add_input_value(root.ids.input, "4", root=root)
+            Button:
+                text:"5"
+                on_press: root.Events.add_input_value(root.ids.input, "5", root=root)
+            Button:
+                text:"6"
+                on_press: root.Events.add_input_value(root.ids.input, "6", root=root)
+            Button:
+                text:"-"
+                background_color: root.parse_hex(157, 157,157)
+                on_press: root.Events.add_input_value(root.ids.input, "-", root=root)
+            Button:
+                text:"1"
+                on_press: root.Events.add_input_value(root.ids.input, "1", root=root)
+            Button:
+                text:"2"
+                on_press: root.Events.add_input_value(root.ids.input, "2", root=root)
+            Button:
+                text:"3"
+                on_press: root.Events.add_input_value(root.ids.input, "3", root=root)
+            Button:
+                text:"+"
+                on_press: root.Events.add_input_value(root.ids.input, "+", root=root)
+                background_color: root.parse_hex(157, 157,157)
+        GridLayout:
+            cols: 3
+            size_hint: (1, .2)
+            Button:
+                text: "0"
+                on_press: root.Events.add_input_value(root.ids.input, "0", root=root)
+            Button:
+                text: "."
+                on_press: root.Events.add_input_value(root.ids.input, ".", root=root)
+            Button:
+                text: "="
+                on_press: root.Events.add_input_value(root.ids.input, "=", append=False, root=root)
+
+
+<WarnPopUp>:
+
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            text: "Invalid syntax"
+        Button:
+            size_hint: (1, .1)
+            text: "Close"
+            on_press: root.dismiss()
